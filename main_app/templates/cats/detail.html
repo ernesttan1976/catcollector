@@ -1,11 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-  <h1>Cat List</h1>
+  <h1>Cat Detail</h1>
 
-  {% for cat in cats %}
     <div class="card">
-    <a href="{% url 'detail' cat.id %}">
       <div class="card-content">
         <span class="card-title">{{ cat.name }}</span>
         <p>Breed: {{ cat.breed }}</p>
@@ -18,12 +16,11 @@
         {% if cat.image == '' %}
           <p>no image</p>
         {% elif 'http' in cat.image %}
-          <img src="{{ cat.image }}" width="300px" height="auto" alt="cat" />
+          <img src="{{ cat.image }}" width="600px" height="auto" alt="cat" />
         {% else %}
-          <img src="{% static cat.image %}" width="300px" height="auto" alt="cat" />
+          <img src="{% static cat.image %}" width="600px" height="auto" alt="cat" />
         {% endif %}
       </div>
-    </a>
     </div>
-  {% endfor %}
+
 {% endblock %}
